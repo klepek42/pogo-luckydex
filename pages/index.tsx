@@ -1,19 +1,18 @@
 import type { NextPage } from "next";
 import Navigation from "../components/Navigation";
-import Login from "../components/Login/Login";
 import PokeDex from "../components/PokeDex";
+import FilterPanel from "../components/FilterPanel";
+import SearchBar from "../components/SearchBar";
+import Stats from "../components/Stats";
 
 const Home: NextPage = () => {
   return (
     <div>
       <Navigation />
-      {/*<FrontPage />*/}
-
+      <SearchBar />
+      <FilterPanel />
       <PokeDex />
-
-      <div className="box">Switch to Darkmode</div>
-
-      <Login />
+      <Stats />
     </div>
   );
 };

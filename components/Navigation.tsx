@@ -31,6 +31,7 @@ const Navigation = () => {
           <a className="navbar-item">Lucky Dex</a>
           <a className="navbar-item">Stats</a>
           <a className="navbar-item">Friends</a>
+          <a className="navbar-item">Todo</a>
           <a className="navbar-item">Profile</a>
 
           <div className="navbar-item has-dropdown is-hoverable">
