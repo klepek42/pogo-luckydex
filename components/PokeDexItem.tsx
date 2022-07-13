@@ -4,6 +4,7 @@ import styles from "./PokedexItem.module.css";
 interface Props {
   id: number;
   name: string;
+  completed: boolean;
 }
 
 const PokeDexItem = (props: Props) => {
@@ -14,8 +15,8 @@ const PokeDexItem = (props: Props) => {
     <div className={styles["pokedex-item"]}>
       <label>{props.id} </label>
       <label>{props.name}</label>
-      <Image src={imgSrc} width="128" height="128" alt=`${props.name}-icon` />
-      <input type="checkbox" />
+      <Image src={imgSrc} width="128" height="128" alt={props.name} />
+      <input type="checkbox" checked={props.completed} />
     </div>
   );
 };
