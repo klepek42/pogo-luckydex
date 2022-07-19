@@ -20,7 +20,7 @@ const FilterPanel = (props: Props) => {
         <span className="tag is-black" onClick={() => filterGeneration(0)}>
           All gens
         </span>
-        <span className="tag is-black" onClick={() => filterGeneration(1)}>
+        <span className="tag is-info" onClick={() => filterGeneration(1)}>
           Gen 1
         </span>
         <span className="tag is-success" onClick={() => filterGeneration(2)}>

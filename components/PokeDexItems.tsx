@@ -14,40 +14,37 @@ interface Props {
 }
 
 const PokeDexItems = (props: Props) => {
+  const filteredDexItems = props.pokedexItems
+    .filter((entry) =>
+      props.generationFilter ? entry.gen === props.generationFilter : true
+    )
+    .filter((entry) => {
+      return props.itemsFilter === "uncompleted" ? !entry.completed : true;
+    })
+    .filter((entry) => {
+      return props.itemsFilter === "completed" ? entry.completed : true;
+    })
+    .filter((entry) =>
+      props.searchText !== ""
+        ? entry.name.toLowerCase().includes(props.searchText.toLowerCase())
+        : true
+    );
+
   return (
     <>
-      {<h3 className="title is-3">Gen</h3>}
+      {<h3 className="title is-3">{filteredDexItems.length} Pokemon</h3>}
       <div className={styles["pokedex-items"]}>
-        {props.pokedexItems
-          .filter((entry) =>
-            props.generationFilter ? entry.gen === props.generationFilter : true
-          )
-          .filter((entry) => {
-            return props.itemsFilter === "uncompleted"
-              ? !entry.completed
-              : true;
-          })
-          .filter((entry) => {
-            return props.itemsFilter === "completed" ? entry.completed : true;
-          })
-          .filter((entry) =>
-            props.searchText !== ""
-              ? entry.name
-                  .toLowerCase()
-                  .includes(props.searchText.toLowerCase())
-              : true
-          )
-          .map((entry) => {
-            return (
-              <PokeDexItem
-                key={entry.id}
-                id={entry.id}
-                name={entry.name}
-                gen={entry.gen}
-                completed={entry.completed}
-              />
-            );
-          })}
+        {filteredDexItems.map((entry) => {
+          return (
+            <PokeDexItem
+              key={entry.id}
+              id={entry.id}
+              name={entry.name}
+              gen={entry.gen}
+              completed={entry.completed}
+            />
+          );
+        })}
       </div>
     </>
   );
