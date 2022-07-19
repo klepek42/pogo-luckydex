@@ -19,7 +19,7 @@ const DUMMY_DEX = [
   { id: 11, name: "Safcon", gen: 1, completed: false },
   { id: 12, name: "Smettbo", gen: 1, completed: false },
   { id: 152, name: "Endivie", gen: 2, completed: false },
-  { id: 153, name: "Lorblatt", gen: 2, completed: false },
+  { id: 153, name: "Lorblatt", gen: 2, completed: true },
   { id: 154, name: "Meganie", gen: 2, completed: false },
   { id: 155, name: "Feurigel", gen: 2, completed: false },
   { id: 156, name: "Igelavar", gen: 2, completed: false },
@@ -28,25 +28,28 @@ const DUMMY_DEX = [
   { id: 159, name: "Tyracroc", gen: 2, completed: false },
   { id: 160, name: "Impergator", gen: 2, completed: false },
   { id: 252, name: "Geckarbor", gen: 3, completed: false },
-  { id: 253, name: "Reptain", gen: 3, completed: false },
+  { id: 253, name: "Reptain", gen: 3, completed: true },
   { id: 254, name: "Gewaldro", gen: 3, completed: false },
 ];
 
 const PokeDex = () => {
   const [pokedexItems, setPokedexItems] = useState(DUMMY_DEX);
   const [searchText, setSearchText] = useState("");
-  const [filter, setFilter] = useState("");
-
-  console.log("searchText", searchText);
+  const [itemsFilter, setItemsFilter] = useState("");
+  const [generationFilter, setGenerationFilter] = useState(0);
 
   return (
     <div className={styles["pokedex-panel"]}>
       <SearchBar setSearchText={setSearchText} />
-      <FilterPanel filter={filter} setFilter={setFilter} />
+      <FilterPanel
+        setItemsFilter={setItemsFilter}
+        setGenerationFilter={setGenerationFilter}
+      />
       <PokeDexItems
         pokedexItems={pokedexItems}
-        filter={filter}
         searchText={searchText}
+        itemsFilter={itemsFilter}
+        generationFilter={generationFilter}
       />
     </div>
   );

@@ -1,28 +1,35 @@
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {
-  filter: string;
-  setFilter: Dispatch<SetStateAction<string>>;
+  setItemsFilter: Dispatch<SetStateAction<string>>;
+  setGenerationFilter: Dispatch<SetStateAction<number>>;
 }
 
 const FilterPanel = (props: Props) => {
   const filterItems = (filter: string): void => {
-    props.setFilter(filter);
+    props.setItemsFilter(filter);
+  };
+
+  const filterGeneration = (gen: number): void => {
+    props.setGenerationFilter(gen);
   };
 
   return (
     <div>
       <div className="tags">
-        <span className="tag is-black" onClick={() => filterItems("1")}>
+        <span className="tag is-black" onClick={() => filterGeneration(0)}>
+          All Gens
+        </span>
+        <span className="tag is-black" onClick={() => filterGeneration(1)}>
           Gen 1
         </span>
-        <span className="tag is-success" onClick={() => filterItems("2")}>
+        <span className="tag is-success" onClick={() => filterGeneration(2)}>
           Gen 2
         </span>
-        <span className="tag is-warning" onClick={() => filterItems("3")}>
+        <span className="tag is-warning" onClick={() => filterGeneration(3)}>
           Gen 3
         </span>
-        <span className="tag is-danger" onClick={() => filterItems("4")}>
+        <span className="tag is-danger" onClick={() => filterGeneration(4)}>
           Gen 4
         </span>
       </div>

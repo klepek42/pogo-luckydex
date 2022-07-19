@@ -8,13 +8,10 @@ interface Props {
     gen: number;
     completed: boolean;
   }[];
-  filter: string;
   searchText: string;
+  itemsFilter: string;
+  generationFilter: number;
 }
-
-// && props.filter === "completed"
-//   ? entry.completed === true
-//   : true
 
 const PokeDexItems = (props: Props) => {
   return (
@@ -23,8 +20,16 @@ const PokeDexItems = (props: Props) => {
       <div className={styles["pokedex-items"]}>
         {props.pokedexItems
           .filter((entry) =>
-            props.filter ? entry.gen === parseInt(props.filter) : true
+            props.generationFilter ? entry.gen === props.generationFilter : true
           )
+          .filter((entry) => {
+            return props.itemsFilter === "uncompleted"
+              ? !entry.completed
+              : true;
+          })
+          .filter((entry) => {
+            return props.itemsFilter === "completed" ? entry.completed : true;
+          })
           .filter((entry) =>
             props.searchText !== ""
               ? entry.name
