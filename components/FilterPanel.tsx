@@ -18,7 +18,7 @@ const FilterPanel = (props: Props) => {
     <div>
       <div className="tags">
         <span className="tag is-black" onClick={() => filterGeneration(0)}>
-          All Gens
+          All gens
         </span>
         <span className="tag is-black" onClick={() => filterGeneration(1)}>
           Gen 1
@@ -35,10 +35,19 @@ const FilterPanel = (props: Props) => {
       </div>
       <div className="tags">
         <button
+          className="tag button is-danger is-outlined is-small"
+          onClick={() => {
+            filterItems("");
+            filterGeneration(0);
+          }}
+        >
+          Reset filter
+        </button>
+        <button
           className="tag button is-primary is-outlined is-small"
           onClick={() => filterItems("")}
         >
-          Show all
+          Show both
         </button>
         <button
           className="tag button is-link is-outlined is-small"
