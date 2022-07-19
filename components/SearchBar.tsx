@@ -1,4 +1,14 @@
-const SearchBar = () => {
+import { Dispatch, SetStateAction } from "react";
+
+interface Props {
+  setSearchText: Dispatch<SetStateAction<string>>;
+}
+
+const SearchBar = ({ setSearchText }: Props) => {
+  const changeSearchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  };
+
   return (
     <div className="field">
       <div className="control">
@@ -6,9 +16,9 @@ const SearchBar = () => {
           className="input is-primary is-rounded"
           type="text"
           placeholder="Search Pokemon"
+          onChange={changeSearchHandler}
         />
       </div>
-      <p className="help">Gültige Eingaben: Name, Dex Nr.</p>
     </div>
   );
 };

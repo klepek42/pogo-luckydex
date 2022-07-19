@@ -1,16 +1,52 @@
-const FilterPanel = () => {
+import { Dispatch, SetStateAction } from "react";
+
+interface Props {
+  filter: string;
+  setFilter: Dispatch<SetStateAction<string>>;
+}
+
+const FilterPanel = (props: Props) => {
+  const filterItems = (filter: string): void => {
+    props.setFilter(filter);
+  };
+
   return (
     <div>
       <div className="tags">
-        <span className="tag is-black">Gen 1</span>
-        <span className="tag is-success">Gen 2</span>
-        <span className="tag is-warning">Gen 3</span>
-        <span className="tag is-danger">Gen 4</span>
+        <span className="tag is-black" onClick={() => filterItems("1")}>
+          Gen 1
+        </span>
+        <span className="tag is-success" onClick={() => filterItems("2")}>
+          Gen 2
+        </span>
+        <span className="tag is-warning" onClick={() => filterItems("3")}>
+          Gen 3
+        </span>
+        <span className="tag is-danger" onClick={() => filterItems("4")}>
+          Gen 4
+        </span>
       </div>
-      <div>
-        <button className="button is-primary is-outlined">Show all</button>
-        <button className="button is-link is-outlined">Show uncompleted</button>
-        <button className="button is-info is-outlined">Show completed</button>
+      <div className="tags">
+        <button
+          className="tag button is-primary is-outlined is-small"
+          onClick={() => filterItems("")}
+        >
+          Show all
+        </button>
+        <button
+          className="tag button is-link is-outlined is-small"
+          onClick={() => filterItems("uncompleted")}
+        >
+          Show uncompleted
+        </button>
+        <button
+          className="tag button is-info is-outlined is-small"
+          onClick={() => filterItems("completed")}
+        >
+          Show completed
+        </button>
+        <br />
+        <br />
       </div>
     </div>
   );

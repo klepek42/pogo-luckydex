@@ -1,7 +1,9 @@
-export interface PokemonEntry {
+export interface PokedexEntry {
   id: number;
-  name: string;
   gen: number;
-  done: boolean;
+  nameDe: string;
+  nameEn: string;
+  nameJp: string;
+  completed: boolean;
   language: string;
 }
