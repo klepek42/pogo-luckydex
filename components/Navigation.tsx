@@ -26,23 +26,15 @@ const Navigation = () => {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <a className="navbar-item">Home</a>
-
           <a className="navbar-item">Lucky Dex</a>
           <a className="navbar-item">Stats</a>
-          <a className="navbar-item">Friends</a>
-          <a className="navbar-item">Todo</a>
-          <a className="navbar-item">Profile</a>
 
           <div className="navbar-item has-dropdown is-hoverable">
             <a className="navbar-link">More</a>
 
             <div className="navbar-dropdown">
+              <a className="navbar-item">Profile</a>
               <a className="navbar-item">About</a>
-              <a className="navbar-item">Contact</a>
-              <a className="navbar-item">Donation</a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">Report an issue</a>
             </div>
           </div>
         </div>
