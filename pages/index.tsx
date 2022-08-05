@@ -25,8 +25,6 @@ if (typeof window !== "undefined") {
 }
 
 const Home: NextPage = () => {
-  // const auth = getAuth(app);
-
   return (
     <div>
       <Navigation />
