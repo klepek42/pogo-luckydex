@@ -18,12 +18,12 @@ const PokeDexItems = (props: Props) => {
     .filter((entry) =>
       props.generationFilter ? entry.gen === props.generationFilter : true
     )
-    .filter((entry) => {
-      return props.itemsFilter === "uncompleted" ? !entry.completed : true;
-    })
-    .filter((entry) => {
-      return props.itemsFilter === "completed" ? entry.completed : true;
-    })
+    .filter((entry) =>
+      props.itemsFilter === "uncompleted" ? !entry.completed : true
+    )
+    .filter((entry) =>
+      props.itemsFilter === "completed" ? entry.completed : true
+    )
     .filter((entry) =>
       props.searchText !== ""
         ? entry.name.toLowerCase().includes(props.searchText.toLowerCase())
